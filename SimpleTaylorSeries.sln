@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTaylorSeriesUI", "SimpleTaylorSeries\SimpleTaylorSeriesUI.csproj", "{FF7ABA00-EE8B-40CE-A328-6958BC8DC614}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTaylorSeriesUI", "SimpleTaylorSeriesUI\SimpleTaylorSeriesUI.csproj", "{FF7ABA00-EE8B-40CE-A328-6958BC8DC614}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApproxTaylorSeries", "SimpleApproxTaylorSeries\SimpleApproxTaylorSeries.csproj", "{31EFB3AA-490B-434B-ADA6-2B61DA6F5EB4}"
 EndProject
