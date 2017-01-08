@@ -27,12 +27,9 @@ namespace SimpleApproxTaylorSeries
 
                 var r = (f.Invoke(x0)* Math.Pow(x - x0, i))/(double) MathNet.Numerics.SpecialFunctions.Factorial(new BigInteger(i));
                 sum += r;
-                Console.WriteLine(i + ". div - " + f.Invoke(x));
-                Console.WriteLine(i + ". R - " + r);
-                Console.WriteLine(i + ". T - " + sum);
 
                 if (i > 20)
-                    throw new Exception();
+                    throw new NotSupportedException();
             }
 
             return sum;
