@@ -45,8 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TaylorApproxer.cs" />
+    <Compile Include="CosineApproxes.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="PowerApproxer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SineApproxer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
