@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExponentialApproxer.cs" />
     <Compile Include="CosineApproxes.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="PowerApproxer.cs" />
