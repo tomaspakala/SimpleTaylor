@@ -34,6 +34,7 @@ namespace SimpleTaylorSeries
                 case 9:
                     {
                     textBox1.Enabled = true;
+                    textBox2.Enabled = false;
                     textBox3.Enabled = true;
                     button1.Enabled = true;
                     break;
@@ -67,7 +68,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.CosineHyper(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.CosineHyper(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -75,7 +76,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.SineHyper(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.SineHyper(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -83,7 +84,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Sine(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Sine(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -91,7 +92,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Cosine(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Cosine(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -99,7 +100,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Tangent(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Tangent(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -107,7 +108,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Arccosinus(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Arccosinus(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -115,7 +116,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Arcsinus(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Arcsinus(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -123,7 +124,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Arctangent(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Arctangent(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -131,7 +132,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.EExponential(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.EExponential(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -139,7 +140,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Logarithm(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Logarithm(Double.Parse(textBox1.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -147,7 +148,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = HighPrecisionPi.GetPi(Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = HighPrecisionPi.GetPi(Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -155,7 +156,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Power(Double.Parse(textBox1.Text), Double.Parse(textBox2.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Power(Double.Parse(textBox1.Text), Double.Parse(textBox2.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -163,7 +164,7 @@ namespace SimpleTaylorSeries
                     {
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
-                            label5.Text = TaylorApproxer.Exponential(Double.Parse(textBox1.Text), Double.Parse(textBox2.Text), Int32.Parse(textBox3.Text)).ToString();
+                            textBox4.Text = TaylorApproxer.Exponential(Double.Parse(textBox1.Text), Double.Parse(textBox2.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
@@ -175,6 +176,7 @@ namespace SimpleTaylorSeries
             textBox1.Text = String.Empty;
             textBox2.Text = String.Empty;
             textBox3.Text = String.Empty;
+            textBox4.Text = String.Empty;
         }
     }
 }
