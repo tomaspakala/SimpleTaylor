@@ -102,7 +102,6 @@ namespace SimpleTestForSimpleTaylor
 
             Assert.AreEqual(Math.Truncate(accuracity * Math.Pow(Math.E, power)) / accuracity,
                 Math.Truncate(accuracity * res) / accuracity);
-            Console.WriteLine(res);
         }
 
         [TestCase(0.5, 4)]
@@ -126,6 +125,18 @@ namespace SimpleTestForSimpleTaylor
         public void Pi(int digits)
         {
             var res = HighPrecisionPi.GetPi(digits);
+            Console.WriteLine(res);
+        }
+
+        [TestCase(12.0, 12)]
+        public void Arctan(double x, int accuracy)
+        {
+            double accuracity = Math.Pow(10, accuracy);
+
+            var res = TaylorApproxer.Arctangent(x, accuracy);
+
+            Assert.AreEqual(Math.Truncate(accuracity * Math.Atan(Helper.DegreeToRadian(x))) / accuracity,
+                Math.Truncate(accuracity * res) / accuracity);
             Console.WriteLine(res);
         }
     }

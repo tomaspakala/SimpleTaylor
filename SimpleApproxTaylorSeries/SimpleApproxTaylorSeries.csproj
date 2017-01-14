@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CosineHyperApproxer.cs" />
+    <Compile Include="ArctangentApproxer.cs" />
     <Compile Include="LogarithmApproxer.cs" />
     <Compile Include="EExponentialApproxer.cs" />
     <Compile Include="ExponentialApproxer.cs" />
