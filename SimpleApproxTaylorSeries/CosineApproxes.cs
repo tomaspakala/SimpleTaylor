@@ -10,7 +10,7 @@ namespace SimpleApproxTaylorSeries
             double sum = 0;
             double lastSum = Double.MaxValue;
             int i = 0;
-            while (Math.Abs(sum - lastSum) > 1 / Math.Pow(10, accuracy + 1))
+            while (Math.Abs(sum - lastSum) > 1 / Math.Pow(10, accuracy))
             {
                 lastSum = sum;
                 double xRadian = Helper.DegreeToRadian(x);
