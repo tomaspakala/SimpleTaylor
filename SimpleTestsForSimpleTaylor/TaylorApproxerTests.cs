@@ -139,5 +139,17 @@ namespace SimpleTestForSimpleTaylor
                 Math.Truncate(accuracity * res) / accuracity);
             Console.WriteLine(res);
         }
+
+        [TestCase(12.0, 12)]
+        public void Arcsin(double x, int accuracy)
+        {
+            double accuracity = Math.Pow(10, accuracy);
+
+            var res = TaylorApproxer.Arcsinus(x, accuracy);
+
+            Assert.AreEqual(Math.Truncate(accuracity * Math.Asin(Helper.DegreeToRadian(x))) / accuracity,
+                Math.Truncate(accuracity * res) / accuracity);
+            Console.WriteLine(res);
+        }
     }
 }
