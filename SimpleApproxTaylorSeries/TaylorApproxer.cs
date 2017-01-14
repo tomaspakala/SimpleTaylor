@@ -35,6 +35,43 @@ namespace SimpleApproxTaylorSeries
             return sum;
         }
 
+        public static double Sine(double x, int accuracy)
+        {
+            double xRadian = DegreeToRadian(x);
+
+            Func<double, double> pow = delegate (double xx)
+            {
+                return Math.Sin(xx);
+            };
+
+            double acc = Math.Pow(10, accuracy);
+            double adjusted = Adjuster(Math.Sin(xRadian), acc);
+
+            int x0 = 0;
+
+            var sum = pow.Invoke(x0);
+
+            int i = 0;
+            while (adjusted != Adjuster(sum, acc))
+            {
+                ++i;
+                var f = MathNet.Numerics.Differentiate.DerivativeFunc(pow, i);
+
+                var r = (f.Invoke(x0) * Math.Pow(xRadian - x0, i)) / (double)MathNet.Numerics.SpecialFunctions.Factorial(new BigInteger(i));
+                sum += r;
+
+                if (i > 20)
+                    throw new NotSupportedException();
+            }
+
+            return sum;
+        }
+
+        private static double DegreeToRadian(double x)
+        {
+            return Math.PI * x / 180.0;
+        }
+
         private static double Adjuster(double x, double accuracity)
         {
             accuracity *= 10;
