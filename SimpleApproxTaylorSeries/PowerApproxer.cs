@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Numerics;
 
 namespace SimpleApproxTaylorSeries
 {
@@ -7,51 +6,35 @@ namespace SimpleApproxTaylorSeries
     {
         public static double Power(double x, double power, int accuracy)
         {
-            Func<double, double> pow = delegate(double xx)
-            {
-                return Math.Pow(xx, power); 
-            };
-
-            double acc = Math.Pow(10, accuracy);
-            double adjusted = Adjuster(Math.Pow(x, power), acc);
-
-            int x0 = FindClose(x, power);
-
-            var sum = pow.Invoke(x0);
-
+            var close = FindClose(x, power);
+            double x0 = x / close - 1;
+            double sum = 0;
+            double lastSum = Double.MaxValue;
             int i = 0;
-            while (adjusted != Adjuster(sum, acc))
+            double acc = 1;
+            while (Math.Abs(sum - lastSum) > 1 / Math.Pow(10, accuracy))
             {
+                lastSum = sum;
+                sum += (acc* Math.Pow(x0, i)) / Helper.Factorial(i);
+                acc *= power - i;
                 ++i;
-                var f = MathNet.Numerics.Differentiate.DerivativeFunc(pow, i);
-
-                var r = (f.Invoke(x0)* Math.Pow(x - x0, i))/(double) MathNet.Numerics.SpecialFunctions.Factorial(new BigInteger(i));
-                sum += r;
-
-                if (i > 20)
-                    throw new NotSupportedException();
             }
+            return Math.Pow (close, power) *sum;
+        }
 
-            return sum;
+        private static int FindClose(double x, double power)
+        {
+           var close = (int) Math.Round(x);
+           while (Math.Pow(close, power) % 1 != 0)
+                --close;
+
+            return close;
         }
 
         private static double Adjuster(double x, double accuracity)
         {
             accuracity *= 10;
             return Math.Truncate(accuracity * x) / accuracity;
-        }
-
-        private static int FindClose(double x, double power)
-        {
-            var close = (int)Math.Pow(x, power);
-
-            if (close == 1)
-                ++close;
-
-            while (Math.Pow(close, power) % 1 != 0)
-                close++;
-
-            return close;
         }
 
     }
