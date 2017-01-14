@@ -62,13 +62,14 @@ namespace SimpleTestForSimpleTaylor
         [TestCase(0.5, 4)]
         [TestCase(0.5, 8)]
         [TestCase(0.2, 5)]
-        public void EExponential(double power, int accuracy)
+        [TestCase(1.0, 5)]
+        public void Logarithm(double x, int accuracy)
         {
             double accuracity = Math.Pow(10, accuracy + 1);
 
-            var res = TaylorApproxer.EExponential(power, accuracy);
+            var res = TaylorApproxer.Logarithm(x, accuracy);
 
-            Assert.AreEqual(Math.Truncate(accuracity * Math.Pow(Math.E, power)) / accuracity,
+            Assert.AreEqual(Math.Truncate(accuracity * Math.Log(x)) / accuracity,
                 Math.Truncate(accuracity * res) / accuracity);
             Console.WriteLine(res);
         }
