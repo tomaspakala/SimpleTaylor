@@ -42,9 +42,7 @@ namespace SimpleApproxTaylorSeries
             double acc = Math.Pow(10, accuracy);
             double adjusted = Adjuster(Math.Sin(xRadian), acc);
 
-            int x0 = 0;
             var sum = 0.0;
-
             int i = 0;
             while (adjusted != Adjuster(sum, acc))
             {
@@ -65,9 +63,7 @@ namespace SimpleApproxTaylorSeries
             double acc = Math.Pow(10, accuracy);
             double adjusted = Adjuster(Math.Cos(xRadian), acc);
 
-            int x0 = 0;
             var sum = 0.0;
-
             int i = 0;
             while (adjusted != Adjuster(sum, acc))
             {
