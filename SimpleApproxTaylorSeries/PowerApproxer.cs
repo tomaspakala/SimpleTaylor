@@ -27,15 +27,7 @@ namespace SimpleApproxTaylorSeries
            var close = (int) Math.Round(x);
            while (Math.Pow(close, power) % 1 != 0)
                 --close;
-
-            return close;
+           return close;
         }
-
-        private static double Adjuster(double x, double accuracity)
-        {
-            accuracity *= 10;
-            return Math.Truncate(accuracity * x) / accuracity;
-        }
-
     }
 }
