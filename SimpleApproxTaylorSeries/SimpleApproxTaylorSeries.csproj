@@ -51,6 +51,8 @@
     <Compile Include="PowerApproxer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SineApproxer.cs" />
+	<Compile Include="TangentApproxer.cs" />
+	<Compile Include="HighPrecisionPiCalc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
