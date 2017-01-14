@@ -58,5 +58,19 @@ namespace SimpleTestForSimpleTaylor
                 Math.Truncate(accuracity * res) / accuracity);
             Console.WriteLine(res);
         }
+
+        [TestCase(0.5, 4)]
+        [TestCase(0.5, 8)]
+        [TestCase(0.2, 5)]
+        public void EExponential(double power, int accuracy)
+        {
+            double accuracity = Math.Pow(10, accuracy + 1);
+
+            var res = TaylorApproxer.EExponential(power, accuracy);
+
+            Assert.AreEqual(Math.Truncate(accuracity * Math.Pow(Math.E, power)) / accuracity,
+                Math.Truncate(accuracity * res) / accuracity);
+            Console.WriteLine(res);
+        }
     }
 }

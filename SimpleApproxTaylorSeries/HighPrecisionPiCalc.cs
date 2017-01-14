@@ -11,13 +11,6 @@ namespace SimpleApproxTaylorSeries
         private static int slop = 4;
         private BigInteger num;
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine(GetPi(1000));
-            Console.WriteLine(Math.PI);
-            Console.ReadKey(true);
-        }
-
         public HighPrecisionPi(BigInteger numerator, BigInteger denominator)
         {
             // public constructor rescales numerator as needed
