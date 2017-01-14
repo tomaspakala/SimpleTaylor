@@ -45,14 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CosineHyperApproxer.cs" />
+    <Compile Include="LogarithmApproxer.cs" />
     <Compile Include="ExponentialApproxer.cs" />
     <Compile Include="CosineApproxes.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="PowerApproxer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SineApproxer.cs" />
-	<Compile Include="TangentApproxer.cs" />
-	<Compile Include="HighPrecisionPiCalc.cs" />
+    <Compile Include="SineHyperApproxer.cs" />
+    <Compile Include="TangentApproxer.cs" />
+    <Compile Include="HighPrecisionPiCalc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
