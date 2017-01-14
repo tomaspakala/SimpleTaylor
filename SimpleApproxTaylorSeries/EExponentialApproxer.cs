@@ -10,19 +10,16 @@ namespace SimpleApproxTaylorSeries
     {
         public static double EExponential(double x, int accuracy)
         {
-            double acc = Math.Pow(10, accuracy);
-            double adjusted = Adjuster(Math.Pow(Math.E, x), acc);
+            var lastSum = Double.MaxValue;
 
             var sum = 0.0;
             int i = 0;
-            while (adjusted != Adjuster(sum, acc))
+            while (Math.Abs(sum - lastSum) > 1 / Math.Pow(10, accuracy))
             {
+                lastSum = sum;
                 var r = Math.Pow(x, i) / Helper.Factorial(i);
                 sum += r;
                 ++i;
-
-                if (i > 20)
-                    throw new NotSupportedException();
             }
             return sum;
         }

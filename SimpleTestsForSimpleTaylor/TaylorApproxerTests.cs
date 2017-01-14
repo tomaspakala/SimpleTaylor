@@ -25,7 +25,7 @@ namespace SimpleTestForSimpleTaylor
         [TestCase(31, 0.2, 5)]
         public void Exponential(double x, double power, int accuracy)
         {
-            double accuracity = Math.Pow(10, accuracy + 1);
+            double accuracity = Math.Pow(10, accuracy);
 
             var res = TaylorApproxer.Exponential(x, power, accuracy);
 
@@ -36,7 +36,7 @@ namespace SimpleTestForSimpleTaylor
         [TestCase(1, 8)]
         public void Sine(double x, int accuracy)
         {
-            double accuracity = Math.Pow(10, accuracy + 1);
+            double accuracity = Math.Pow(10, accuracy);
 
             var res = TaylorApproxer.Sine(x, accuracy);
 
@@ -47,7 +47,7 @@ namespace SimpleTestForSimpleTaylor
         [TestCase(1, 8)]
         public void Cosine(double x, int accuracy)
         {
-            double accuracity = Math.Pow(10, accuracy + 1);
+            double accuracity = Math.Pow(10, accuracy);
 
             var res = TaylorApproxer.Cosine(x, accuracy);
 
@@ -56,10 +56,21 @@ namespace SimpleTestForSimpleTaylor
         }
 
         [TestCase(1, 8)]
+        public void Tangent(double x, int accuracy)
+        {
+            double accuracity = Math.Pow(10, accuracy);
+
+            var res = TaylorApproxer.Tangent(x, accuracy);
+
+            Assert.AreEqual(Math.Truncate(accuracity * Math.Tan(Helper.DegreeToRadian(x))) / accuracity,
+                Math.Truncate(accuracity * res) / accuracity);
+        }
+
+        [TestCase(1, 8)]
         [TestCase(90, 8)]
         public void SineHyper(double x, int accuracy)
         {
-            double accuracity = Math.Pow(10, accuracy + 1);
+            double accuracity = Math.Pow(10, accuracy);
 
             var res = TaylorApproxer.SineHyper(x, accuracy);
 
@@ -71,7 +82,7 @@ namespace SimpleTestForSimpleTaylor
         [TestCase(180, 8)]
         public void CosineHyper(double x, int accuracy)
         {
-            double accuracity = Math.Pow(10, accuracy + 1);
+            double accuracity = Math.Pow(10, accuracy);
 
             var res = TaylorApproxer.CosineHyper(x, accuracy);
 
@@ -79,13 +90,13 @@ namespace SimpleTestForSimpleTaylor
                 Math.Truncate(accuracity * res) / accuracity);
         }
 
-        [TestCase(0.5, 4)]
+        [TestCase(2.0, 4)]
         [TestCase(0.5, 8)]
         [TestCase(0.2, 5)]
         [TestCase(1.0, 5)]
         public void EExponential(double power, int accuracy)
         {
-            double accuracity = Math.Pow(10, accuracy + 1);
+            double accuracity = Math.Pow(10, accuracy);
 
             var res = TaylorApproxer.EExponential(power, accuracy);
 
@@ -98,9 +109,10 @@ namespace SimpleTestForSimpleTaylor
         [TestCase(0.5, 8)]
         [TestCase(0.2, 5)]
         [TestCase(1.0, 5)]
+        [TestCase(5.0, 5)]
         public void Logarithm(double x, int accuracy)
         {
-            double accuracity = Math.Pow(10, accuracy + 1);
+            double accuracity = Math.Pow(10, accuracy);
 
             var res = TaylorApproxer.Logarithm(x, accuracy);
 
