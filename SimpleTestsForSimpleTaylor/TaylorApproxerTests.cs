@@ -56,6 +56,17 @@ namespace SimpleTestForSimpleTaylor
         }
 
         [TestCase(1, 8)]
+        public void Tangent(double x, int accuracy)
+        {
+            double accuracity = Math.Pow(10, accuracy);
+
+            var res = TaylorApproxer.Tangent(x, accuracy);
+
+            Assert.AreEqual(Math.Truncate(accuracity * Math.Tan(Helper.DegreeToRadian(x))) / accuracity,
+                Math.Truncate(accuracity * res) / accuracity);
+        }
+
+        [TestCase(1, 8)]
         [TestCase(90, 8)]
         public void SineHyper(double x, int accuracy)
         {
