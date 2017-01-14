@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using MathNet.Numerics;
 
 namespace SimpleApproxTaylorSeries
 {
@@ -39,32 +40,34 @@ namespace SimpleApproxTaylorSeries
         {
             double xRadian = DegreeToRadian(x);
 
-            Func<double, double> pow = delegate (double xx)
-            {
-                return Math.Sin(xx);
-            };
-
             double acc = Math.Pow(10, accuracy);
             double adjusted = Adjuster(Math.Sin(xRadian), acc);
 
             int x0 = 0;
-
-            var sum = pow.Invoke(x0);
+            var sum = 0.0;
 
             int i = 0;
             while (adjusted != Adjuster(sum, acc))
             {
-                ++i;
-                var f = MathNet.Numerics.Differentiate.DerivativeFunc(pow, i);
-
-                var r = (f.Invoke(x0) * Math.Pow(xRadian - x0, i)) / (double)MathNet.Numerics.SpecialFunctions.Factorial(new BigInteger(i));
+                var r = Math.Pow(-1, i) * Math.Pow(xRadian, 1+2*i) / Factorial(i);
                 sum += r;
+                ++i;
 
                 if (i > 20)
                     throw new NotSupportedException();
             }
-
             return sum;
+        }
+
+        private static int Factorial(int x)
+        {
+            int factorial = 1;
+            do
+            {
+                factorial *= x;
+                x--;
+            } while (x > 0) ;
+            return factorial;
         }
 
         private static double DegreeToRadian(double x)
