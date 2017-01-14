@@ -18,9 +18,6 @@ namespace SimpleApproxTaylorSeries
                 ++i;
                 var r = Math.Pow(-1, i) * Math.Pow(x-1, i) / i;
                 sum -= r;
-
-                if (i > 20)
-                    throw new NotSupportedException();
             }
             return sum;
         }
