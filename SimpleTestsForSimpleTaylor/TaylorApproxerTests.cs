@@ -79,7 +79,7 @@ namespace SimpleTestForSimpleTaylor
                 Math.Truncate(accuracity * res) / accuracity);
         }
 
-        [TestCase(0.5, 4)]
+        [TestCase(2.0, 4)]
         [TestCase(0.5, 8)]
         [TestCase(0.2, 5)]
         [TestCase(1.0, 5)]
