@@ -7,7 +7,7 @@ namespace SimpleTestForSimpleTaylor
     [TestFixture]
     public class TaylorApproxerTests
     {
-        [TestCase (5, 0.5, 4)]
+        [TestCase (4, 0.5, 4)]
         [TestCase (3, 0.5, 8)]
         [TestCase (33, 0.2, 5)]
         public void Power(double x, double power, int accuracy)
@@ -18,11 +18,12 @@ namespace SimpleTestForSimpleTaylor
             
             Assert.AreEqual(Math.Truncate(accuracity * Math.Pow(x, power)) / accuracity,
                 Math.Truncate(accuracity * res) / accuracity);
+            Console.WriteLine(res);
         }
 
         [TestCase(3, 0.5, 4)]
         [TestCase(3, 0.5, 8)]
-        [TestCase(31, 0.2, 5)]
+        [TestCase(33, 0.2, 5)]
         public void Exponential(double x, double power, int accuracy)
         {
             double accuracity = Math.Pow(10, accuracy);
@@ -31,6 +32,7 @@ namespace SimpleTestForSimpleTaylor
 
             Assert.AreEqual(Math.Truncate(accuracity * Math.Pow(x, power)) / accuracity,
                 Math.Truncate(accuracity * res) / accuracity);
+            Console.WriteLine(res);
         }
 
         [TestCase(1, 8)]
