@@ -48,7 +48,30 @@ namespace SimpleApproxTaylorSeries
             int i = 0;
             while (adjusted != Adjuster(sum, acc))
             {
-                var r = Math.Pow(-1, i) * Math.Pow(xRadian, 1+2*i) / Factorial(i);
+                var r = Math.Pow(-1, i) * Math.Pow(xRadian, 1+2*i) / Factorial(1+2*i);
+                sum += r;
+                ++i;
+
+                if (i > 20)
+                    throw new NotSupportedException();
+            }
+            return sum;
+        }
+
+        public static double Cosine(double x, int accuracy)
+        {
+            double xRadian = DegreeToRadian(x);
+
+            double acc = Math.Pow(10, accuracy);
+            double adjusted = Adjuster(Math.Cos(xRadian), acc);
+
+            int x0 = 0;
+            var sum = 0.0;
+
+            int i = 0;
+            while (adjusted != Adjuster(sum, acc))
+            {
+                var r = Math.Pow(-1, i) * Math.Pow(xRadian, 2*i) / Factorial(2*i);
                 sum += r;
                 ++i;
 
