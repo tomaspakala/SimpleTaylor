@@ -58,5 +58,18 @@ namespace SimpleTestForSimpleTaylor
                 Math.Truncate(accuracity * res) / accuracity);
             Console.WriteLine(res);
         }
+
+        [TestCase(1, 8)]
+        [TestCase(2, 8)]
+        public void Logarithm(double x, int accuracy)
+        {
+            double accuracity = Math.Pow(10, accuracy + 1);
+
+            var res = TaylorApproxer.Logarithm(x, accuracy);
+
+            Assert.AreEqual(Math.Truncate(accuracity * Math.Cos(Helper.DegreeToRadian(x))) / accuracity,
+                Math.Truncate(accuracity * res) / accuracity);
+            Console.WriteLine(res);
+        }
     }
 }
