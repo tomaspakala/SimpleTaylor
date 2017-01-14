@@ -72,5 +72,13 @@ namespace SimpleTestForSimpleTaylor
                 Math.Truncate(accuracity * res) / accuracity);
             Console.WriteLine(res);
         }
+
+        [TestCase(10)]
+        [TestCase(100)]
+        public void Pi(int digits)
+        {
+            var res = HighPrecisionPi.GetPi(digits);
+            Console.WriteLine(res);
+        }
     }
 }
