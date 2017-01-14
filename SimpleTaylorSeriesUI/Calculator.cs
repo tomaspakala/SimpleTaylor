@@ -47,6 +47,7 @@ namespace SimpleTaylorSeries
                     break;
                 }
                 case 11:
+                case 12:
                     {
                         textBox1.Enabled = true;
                         textBox2.Enabled = true;
@@ -155,6 +156,14 @@ namespace SimpleTaylorSeries
                         if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                         {
                             label5.Text = TaylorApproxer.Power(Double.Parse(textBox1.Text), Double.Parse(textBox2.Text), Int32.Parse(textBox3.Text)).ToString();
+                        }
+                        break;
+                    }
+                case 12:
+                    {
+                        if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
+                        {
+                            label5.Text = TaylorApproxer.Exponential(Double.Parse(textBox1.Text), Double.Parse(textBox2.Text), Int32.Parse(textBox3.Text)).ToString();
                         }
                         break;
                     }
